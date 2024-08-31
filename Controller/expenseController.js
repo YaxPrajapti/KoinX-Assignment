@@ -19,10 +19,10 @@ module.exports.fetchExpense = async (req, res, next) => {
       const transactionPrice = (gasUsed * gasPrice) / 10 ** 18;
       totalExpense += transactionPrice;
     });
-    const ethPrice = await EthPrice.find().sort({ _id: -1 }).limit(1);
+    const ethPrice = await EthPrice.findOne().sort({ _id: -1 });
     const resObj = {
       expense: totalExpense,
-      eth: ethPrice[0].price,
+      eth: ethPrice.price,
     };
     res.status(200).send(resObj);
   } catch (error) {
