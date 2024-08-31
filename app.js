@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const transactionRouter = require("./router/transactionRouter");
+const expenseRouter = require('./router/expenseRouter'); 
 
 const {scheduler} = require("./cronScheduler");
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/fetch", transactionRouter);
+app.use("/api/expense", expenseRouter)
 
 mongoose
   .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
