@@ -2,14 +2,19 @@
     "version": 2,
     "builds": [
       {
-        "src": "./app.js",
+        "src": "api/**/*.js",
         "use": "@vercel/node"
       }
     ],
     "routes": [
       {
-        "src": "/(.*)",
-        "dest": "/"
+        "src": "/api/fetch/(.*)",
+        "dest": "router/transactionRouter.js"
+      },
+      {
+        "src": "/api/expense/(.*)",
+        "dest": "router/expenseRouter.js"
       }
     ]
   }
+  
