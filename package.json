@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/YaxPrajapti/KoinX-Assignment/issues"
   },
-  "homepage": "https://github.com/YaxPrajapti/KoinX-Assignment#readme"
+  "homepage": "https://github.com/YaxPrajapti/KoinX-Assignment#readme",
+  "dependencies": {
+    "axios": "^1.7.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.6.0",
+    "morgan": "^1.10.0"
+  }
 }
