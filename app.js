@@ -2,9 +2,11 @@ const express = require("express");
 const dotenv = require("dotenv").config({ path: "./.env" });
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-const cors = require('cors'); 
+const cors = require("cors");
 
-const transactionRouter = require('./router/transactionRouter'); 
+const transactionRouter = require("./router/transactionRouter");
+
+const {scheduler} = require("./cronScheduler");
 
 const PORT = process.env.PORT;
 const MONGO_URI = process.env.MONGO_URI;
@@ -15,11 +17,12 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(cors());
 
-app.use("/api/fetch", transactionRouter); 
+app.use("/api/fetch", transactionRouter);
 
 mongoose
   .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
+    scheduler();
     app.listen(PORT, () => {
       console.log(`Server started on port ${PORT}`);
     });
