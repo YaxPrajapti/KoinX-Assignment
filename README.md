@@ -58,3 +58,11 @@
 
   ```http
   GET http://localhost:3000/api/expense/0xYourEthereumAddress
+## production env API 
+### 1. Get transaction list associated with user
+
+    GET https://koinx-assignment-production-2ffe.up.railway.app/api/fetch/0x0xYourEthereumAddress
+### 2. Get Total Expenses and Current Ether Price
+    GET https://koinx-assignment-production-2ffe.up.railway.app/api/expense/0x0xYourEthereumAddress
+
+  
